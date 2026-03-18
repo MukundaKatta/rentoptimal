@@ -1,45 +1,43 @@
-# RentOptimal
+# rentoptimal
 
-Rental Price Optimizer -- a data-driven tool for maximizing rental revenue.
+**RentOptimal — Rental Price Optimizer. ML-powered optimal rental pricing based on market analysis.**
 
-RentOptimal combines gradient-boosting price prediction, comparable-listing
-analysis, and occupancy-aware revenue optimization to recommend the best
-asking rent for any residential property.
+![Build](https://img.shields.io/badge/build-passing-brightgreen) ![License](https://img.shields.io/badge/license-proprietary-red)
 
-## Features
-
-* **Price Prediction** -- GradientBoosting model trained on location, size,
-  bedrooms, amenities, and condition features.
-* **Comparable Analysis** -- finds similar rental listings and derives
-  pricing insights from the local market.
-* **Revenue Optimization** -- searches for the rent that maximizes
-  `occupancy_rate * monthly_rent` (expected revenue).
-* **Market Analytics** -- vacancy rates, rent trends, seasonal demand
-  forecasting, and price-per-sqft benchmarks by city/neighborhood.
-* **Synthetic Data** -- built-in simulator for generating realistic rental
-  market datasets.
-* **Rich Reports** -- beautiful terminal reports via Rich.
-
-## Installation
-
+## Install
 ```bash
-pip install -e .
+pip install -e ".[dev]"
 ```
 
 ## Quick Start
-
-```bash
-# Generate sample market data and run pricing analysis
-rentoptimal analyze --city "San Francisco" --bedrooms 2 --sqft 950
-
-# Generate a full market report
-rentoptimal report --city "San Francisco"
+```python
+from src.core import Rentoptimal
+ instance = Rentoptimal()
+r = instance.process(input="test")
 ```
 
-## Dependencies
+## CLI
+```bash
+python -m src status
+python -m src run --input "data"
+```
 
-numpy, scikit-learn, pydantic, click, rich
+## API
+| Method | Description |
+|--------|-------------|
+| `process()` | Process |
+| `analyze()` | Analyze |
+| `transform()` | Transform |
+| `validate()` | Validate |
+| `export()` | Export |
+| `get_stats()` | Get stats |
+| `get_stats()` | Get stats |
+| `reset()` | Reset |
 
-## Author
+## Test
+```bash
+pytest tests/ -v
+```
 
-Mukunda Katta
+## License
+(c) 2026 Officethree Technologies. All Rights Reserved.
